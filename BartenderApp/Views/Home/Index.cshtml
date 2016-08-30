@@ -1,0 +1,15 @@
+﻿@model List<BartenderApp.Models.Drink>
+
+@{
+    ViewBag.Title = "Drink Menu";
+}
+
+<h2>Drink Menu</h2>
+
+@foreach (var p in Model)
+{
+    @Html.Partial("ProductSummary", p)
+}
+
+
+
