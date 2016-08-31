@@ -18,9 +18,10 @@
         
 
         <div class="pull-right" >
-            <span class="btn btn-success">@Html.ActionLink("Pass this object's values", "Order",
-                            "Home", p, null)</span>
-        </div>  
+<span class="btn btn-success">@Html.ActionLink("Pass this object's values", "Order", "Home", p, null)</span>
+            @*Inspect ActionLink in Chrome dev tool, MVC assigns Controller/ActionMethod/Id of object to <a href>*@
+
+</div>  
         
         
 
@@ -29,6 +30,11 @@
 
 }
 
+
 @* Don't use partial view, use actionlink, pass p, and that passes the value
   MVC will try to match property names and make a new object based off that*@
+
+
+@*you can have one view from a given method/controller call a URL that gets/does 
+something from/to an entirely different controller/method.  The power of URL routing.*@
 

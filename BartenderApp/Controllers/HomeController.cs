@@ -11,6 +11,7 @@ namespace BartenderApp.Controllers
         private static List<Drink> Drinks
             = new List<Drink>()
             {
+                new Drink {Id = 99, Name = "LA Freeway", Description = "Do not drink", Price = 1},
                 new Drink {Id = 1, Name = "Rum and Coke", Description = "Rum mostly coke", Price = 6},
                 new Drink {Id = 2, Name = "Mojito", Description = "Mint and vodka", Price = 9},
                 new Drink {Id = 3, Name = "Moscow Mule", Description = "Ginger Beer and vodka", Price = 8}
@@ -23,16 +24,18 @@ namespace BartenderApp.Controllers
 
 
         public ActionResult Order(Drink drink)
+        {      
+            Orders.Add(drink);
+            return View(Orders);         
+        }
+
+        public ViewResult ViewOrders()
         {
             
-            Orders.Add(drink);
-
-            return View(Orders);
-            
+            return View("Order", Orders);
         }
-        
-        
+
+
     }
 }
-// In chrome dev tools for the actionlink I think 1 is an ID assigned by browser
-// for each link it enumerates?   the Home/Order/1 
+
