@@ -1,4 +1,4 @@
-﻿@model List<BartenderApp.Models.Drink>
+﻿@model IEnumerable<BartenderApp.Models.Drink>
 
 @{
     ViewBag.Title = "Drink Menu";
@@ -6,10 +6,29 @@
 
 <h2>Drink Menu</h2>
 
+
+
 @foreach (var p in Model)
 {
-    @Html.Partial("ProductSummary", p)
+    <div class="well">
+        <h3>
+            <strong>@p.Name</strong>
+            <span class="pull-right label label-primary">@p.Price.ToString("c")</span>
+        </h3>
+        
+
+        <div class="pull-right" >
+            <span class="btn btn-success">@Html.ActionLink("Pass this object's values", "Order",
+                            "Home", p, null)</span>
+        </div>  
+        
+        
+
+        <span class="lead"> @p.Description</span>
+    </div>
+
 }
 
-
+@* Don't use partial view, use actionlink, pass p, and that passes the value
+  MVC will try to match property names and make a new object based off that*@
 
