@@ -6,11 +6,11 @@ namespace BartenderApp.Controllers
 {
     public class HomeController : Controller
     {
-        private static int Id = 0;
+        private static int _id = 0;
 
-        private static List<Drink> Orders = new List<Drink>();
+        private static List<Drink> _orders = new List<Drink>();
 
-        private static List<Drink> Drinks
+        private static List<Drink> _drinks
             = new List<Drink>()
             {
                 new Drink {Name = "LA Freeway", Description = "Do not drink", Price = 1},
@@ -21,21 +21,21 @@ namespace BartenderApp.Controllers
 
         public ActionResult Index()
         {
-            return View(Drinks);
+            return View(_drinks);
         }
 
 
         public ActionResult Order(Drink drink) // MVC takes the values passed to it and makes a new drink object
         {
-            drink.Id = ++Id;
-            Orders.Add(drink);
-            return View(Orders);         
+            drink.Id = ++_id;
+            _orders.Add(drink);
+            return View(_orders);         
         }
 
         public ViewResult ViewOrders()
         {
             
-            return View("Order", Orders);
+            return View("Order", _orders);
         }
 
 
