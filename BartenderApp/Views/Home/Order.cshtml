@@ -15,13 +15,12 @@
 
         <div class="pull-right">
             <span class="btn btn-sm btn-default">
-                @Html.ActionLink("Pass this object's values", "Order", "Home", p, null)
+                @Html.ActionLink("Prepare Drink", "Prepared", "Queue", p, null)  @*Create method to remove from Orders List*@
         </span>
     </div>
 
 
-    @*@Html.ActionLink("Menu", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-
+   
 
     <span class="lead"> @p.Description</span>
 </div>

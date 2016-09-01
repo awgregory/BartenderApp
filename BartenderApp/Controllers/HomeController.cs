@@ -6,15 +6,17 @@ namespace BartenderApp.Controllers
 {
     public class HomeController : Controller
     {
+        private static int Id = 0;
+
         private static List<Drink> Orders = new List<Drink>();
 
         private static List<Drink> Drinks
             = new List<Drink>()
             {
-                new Drink {Id = 99, Name = "LA Freeway", Description = "Do not drink", Price = 1},
-                new Drink {Id = 1, Name = "Rum and Coke", Description = "Rum mostly coke", Price = 6},
-                new Drink {Id = 2, Name = "Mojito", Description = "Mint and vodka", Price = 9},
-                new Drink {Id = 3, Name = "Moscow Mule", Description = "Ginger Beer and vodka", Price = 8}
+                new Drink {Name = "LA Freeway", Description = "Do not drink", Price = 1},
+                new Drink {Name = "Rum and Coke", Description = "Rum mostly coke", Price = 6},
+                new Drink {Name = "Mojito", Description = "Mint and vodka", Price = 9},
+                new Drink {Name = "Moscow Mule", Description = "Ginger Beer and vodka", Price = 8}
             };
 
         public ActionResult Index()
@@ -23,8 +25,9 @@ namespace BartenderApp.Controllers
         }
 
 
-        public ActionResult Order(Drink drink)
-        {      
+        public ActionResult Order(Drink drink) // MVC takes the values passed to it and makes a new drink object
+        {
+            drink.Id = ++Id;
             Orders.Add(drink);
             return View(Orders);         
         }
