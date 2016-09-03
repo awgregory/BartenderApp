@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BartenderApp.Models.Drink>
 
 @{
-    ViewBag.Title = "Order";
+    ViewBag.Title = "Ordered";
 }
 
 <h2>Order Queue</h2>
@@ -16,10 +16,9 @@
         <div class="pull-right">
             <span class="btn btn-sm btn-default">
                 @Html.ActionLink("Prepare Drink", "Prepared", "Queue", p, null)  @*Create method to remove from Orders List*@
-        </span>
+            </span>
+        </div>
+
+        <span class="lead"> @p.Description</span>
     </div>
-
-    <span class="lead"> @p.Description</span>
-</div>
 }
-
