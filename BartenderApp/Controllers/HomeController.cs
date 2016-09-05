@@ -24,7 +24,7 @@ namespace BartenderApp.Controllers
         public ActionResult Index()
         {
             return View(drinks);
-        }  // Creating the view with a List model automatically generates a table in the view
+        }  
 
 
         public RedirectToRouteResult Order(Drink drink) // MVC takes the values passed to it and makes a new drink object here
