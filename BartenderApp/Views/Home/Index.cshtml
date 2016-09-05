@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BartenderApp.Models.Drink>
+@*Keeping this as IEnumerable vs List keeps it more generic and if you later wanted to pass an array it wouldn't break*@
 
 @{
     ViewBag.Title = "Drink Menu";
@@ -18,14 +19,10 @@
         
 
         <div class="pull-right">
-            <span class="btn btn-sm btn-default">@Html.ActionLink("Order (pass drink's values to Home/Order)", "Order", "Home", p, null)</span>
+            <span class="btn btn-sm btn-default">@Html.ActionLink("Pass drink's values to Home/Order", "Order", "Home", p, null)</span>
         </div>          
-    @*Inspect ActionLink in Chrome dev tool, MVC assigns Controller/ActionMethod/Id of object to <a href>*@
-
-  
+    @*Inspect ActionLink in Chrome dev tool, MVC assigns Controller/ActionMethod/Id of object to <a href>*@     
         
-        
-
         <span class="lead"> @p.Description</span>
     </div>
 

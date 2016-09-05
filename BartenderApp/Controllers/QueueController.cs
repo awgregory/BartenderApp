@@ -12,29 +12,38 @@ namespace BartenderApp.Controllers
     {
         private static List<Drink> ready = new List<Drink>();
 
-        
+        public ActionResult ViewOrdersTable () // View for this method made using List as template
+
+        {
+            return View(HomeController.Orders);
+        }
 
        public RedirectToRouteResult Prepared(Drink drink)
         {
             ready.Add(drink);
-            HomeController.Orders.RemoveAll(x => x.Id == drink.Id);
-            return RedirectToAction("ViewOrders");
+            
+            // Instead of the RemoveAll, Nick recommended this way
+            var drinkToRemove = HomeController.Orders.Where(x => x.Id == drink.Id); // x represents an object in Orders
+            // var uses type inference from Orders
+            HomeController.Orders.Remove(drinkToRemove.FirstOrDefault());
+
+
+            return RedirectToAction("ViewOrdersTable");  
         }
 
-        public ViewResult ViewOrders()
+
+
+        public ActionResult ViewPreparedTable() 
+
         {
-            return View("Ordered", HomeController.Orders);
+            return View(ready);
         }
 
-        public ViewResult ViewReady()
-        {
-            return View("Prepared", ready);
-        }
 
         public RedirectToRouteResult Served(Drink drink)
         {
             ready.RemoveAll(x => x.Id == drink.Id);
-            return RedirectToAction("ViewReady");
+            return RedirectToAction("ViewPreparedTable");
         }
 
     }

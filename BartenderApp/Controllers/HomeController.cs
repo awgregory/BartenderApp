@@ -10,6 +10,7 @@ namespace BartenderApp.Controllers
         private static int id = 0;  // Should I be using a Property for this field?
 
         public static List<Drink> Orders = new List<Drink>();  // Ditto above on this
+        // This will be persisted in Database
 
         private static List<Drink> drinks
             = new List<Drink>()
@@ -23,20 +24,16 @@ namespace BartenderApp.Controllers
         public ActionResult Index()
         {
             return View(drinks);
-        }
+        }  // Creating the view with a List model automatically generates a table in the view
 
 
-        public RedirectToRouteResult Order(Drink drink) // MVC takes the values passed to it and makes a new drink object
+        public RedirectToRouteResult Order(Drink drink) // MVC takes the values passed to it and makes a new drink object here
         {
             drink.Id = ++id;
             Orders.Add(drink);
             return RedirectToAction("Index");
         }
 
-        public ViewResult ViewOrders()
-        {           
-            return View("Order", Orders);
-        }
 
 
     }
