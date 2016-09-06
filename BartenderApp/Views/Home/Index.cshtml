@@ -1,5 +1,10 @@
-﻿@model IEnumerable<BartenderApp.Models.Drink>
+﻿@*Senior Project 1 || Adrian Gregory
+This is the Home/Menu Page for the BartenderApp*@
+
+
+@model IEnumerable<BartenderApp.Models.Drink>
 @*Keeping this as IEnumerable vs List keeps it more generic and if you later wanted to pass an array it wouldn't break*@
+
 
 @{
     ViewBag.Title = "Drink Menu";
@@ -21,18 +26,19 @@
         <div class="pull-right">
             <span class="btn btn-sm btn-default">@Html.ActionLink("Pass drink's values to Home/Order", "Order", "Home", p, null)</span>
         </div>          
-    @*Inspect ActionLink in Chrome dev tool, MVC assigns Controller/ActionMethod/Id of object to <a href>*@     
+    
         
         <span class="lead"> @p.Description</span>
     </div>
 
 }
 
+@*Internal Notes on Project*@
 
 @* Don't use partial view, use actionlink, pass p, and that passes the value
   MVC will try to match property names and make a new object based off that*@
 
+@*URL Routing allows you to have one view from a given method/controller call a URL that gets/does 
+something from/to an entirely different controller/method.*@
 
-@*you can have one view from a given method/controller call a URL that gets/does 
-something from/to an entirely different controller/method.  The power of URL routing.*@
-
+@*Inspect ActionLink in Chrome dev tool, MVC assigns Controller/ActionMethod/Id of object to <a href>*@     

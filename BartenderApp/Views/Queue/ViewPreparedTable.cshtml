@@ -1,4 +1,6 @@
-﻿@model IEnumerable<BartenderApp.Models.Drink>
+﻿@*This View made using List as template (MVC generates this table code)*@
+
+@model IEnumerable<BartenderApp.Models.Drink>
 
 @{
     ViewBag.Title = "ViewPreparedTable";
@@ -6,9 +8,8 @@
 
 <h2>Prepared Drinks</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+@*This View Displays all of the drinks on the ready List, pulling table header and data from the model*@
 <table class="table">
     <tr>
         <th>
@@ -35,9 +36,7 @@
             @item.Price
         </td>
         <td>
-            @Html.ActionLink("Serve", "Served", item) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Serve", "Served", item) 
         </td>
     </tr>
 }

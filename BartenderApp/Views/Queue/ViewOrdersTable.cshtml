@@ -1,5 +1,7 @@
-﻿@model IEnumerable<BartenderApp.Models.Drink>
-@*This View made using List as template (MVC generates this table code)*@
+﻿@*This View made using List as template (MVC generates this table code)*@
+
+@model IEnumerable<BartenderApp.Models.Drink>
+
 
 @{
     ViewBag.Title = "ViewOrdersTable";
@@ -7,10 +9,9 @@
 
 <h2>Orders Queue</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">   @*Not sure if we can change these like below*@
+
+@*This View Displays all of the drinks on the Ordered List, pulling table header and data from the model*@
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -27,20 +28,21 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @item.Name;    @*Nick say use item.Name here instead of @Html.DisplayFor*@ 
+            @item.Name;    @*Nick rec using item.Name here vs @Html.DisplayFor || not sure that works for the table header*@ 
         </td>
         <td>
             @item.Description;
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price) @*Produced by scaffolding. See "HtmlHelper Methods" in Pro ASP Summary  *@
-        </td>               @*modelItem may be doing nothing here*@
+            @Html.DisplayFor(modelItem => item.Price) @*modelItem may be doing nothing here*@
+        </td>               
         <td>
             @Html.ActionLink("Prepare Drink", "Prepared", item) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+
         </td>
     </tr>
 }
 
 </table>
+
+@*See "HtmlHelper Methods" in Pro ASP Summary  *@
