@@ -33,7 +33,7 @@
             @item.Description
         </td>
         <td>
-            @item.Price
+            @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
             @Html.ActionLink("Serve", "Served", item) 
