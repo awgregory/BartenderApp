@@ -15,7 +15,7 @@
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
-        </th>
+        </th>  @*DisplayNameFor shows name of the property or the string defined in the display attribute for the property*@
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
@@ -28,14 +28,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @item.Name;    @*Nick rec using item.Name here vs @Html.DisplayFor || not sure that works for the table header*@ 
+            @item.Name;    @*Nick rec using item.Name here vs @Html.DisplayFor*@ 
         </td>
         <td>
             @item.Description;
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Price) @*modelItem may be doing nothing here*@
-        </td>               
+            @Html.DisplayFor(modelItem => item.Price) @*DisplayFor requires a lambda but doesn't use modelItem*@
+        </td> @*If your data item does not come from your model object directly, the left part of the lambda expression does not matter*@        
         <td>
             @Html.ActionLink("Prepare Drink", "Prepared", item) |
 
