@@ -31,3 +31,6 @@ C:\Projects\BartenderApp\BartenderApp\bin\System.Web.Mvc.xml
 C:\Projects\BartenderApp\BartenderApp\obj\Debug\BartenderApp.dll
 C:\Projects\BartenderApp\BartenderApp\obj\Debug\BartenderApp.pdb
 C:\Projects\BartenderApp\BartenderApp\obj\Debug\BartenderApp.csprojResolveAssemblyReference.cache
+C:\Projects\BartenderApp\BartenderApp\bin\HtmlAgilityPack.dll
+C:\Projects\BartenderApp\BartenderApp\bin\HtmlAgilityPack.pdb
+C:\Projects\BartenderApp\BartenderApp\bin\HtmlAgilityPack.xml

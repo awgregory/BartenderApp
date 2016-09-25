@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Generic;   // Bing Developer Asst installed to show code snippets in context, using HtmlAgilityPack as example.  From MVA Github video
 using System.Web.Mvc;
 using BartenderApp.Models;
+using HtmlAgilityPack;
 
 namespace BartenderApp.Controllers
 {
@@ -33,6 +34,7 @@ namespace BartenderApp.Controllers
         // This method displays the list of drinks on the menu
         public ActionResult Index()  // If drinks List was instantiated here, it would be created each time method called.
         {
+            
             return View(drinks);
         }  
 
